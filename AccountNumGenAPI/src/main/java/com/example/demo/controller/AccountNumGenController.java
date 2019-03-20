@@ -18,6 +18,6 @@ public class AccountNumGenController {
 
 	@GetMapping("/genAccNum")
 	public String createAccountNumber() {
-		return svc.numGen();	
+		return svc.accountNum();	
 	}
 }
