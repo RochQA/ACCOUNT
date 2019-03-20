@@ -3,6 +3,7 @@ package com.example.demo.service;
 import java.util.List;
 
 import com.example.demo.entities.Account;
+import com.example.demo.entities.Login;
 
 public interface AccountService {
 
@@ -15,7 +16,7 @@ public interface AccountService {
 	Account updateAccount(Account account);
 
 	Account getAccount(Long id);
-	
-	String checkAccountNumber(String string);
+
+	Account login(Login login);
 
 }
