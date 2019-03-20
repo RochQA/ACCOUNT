@@ -15,5 +15,7 @@ public interface AccountService {
 	Account updateAccount(Account account);
 
 	Account getAccount(Long id);
+	
+	String checkAccountNumber(String string);
 
 }

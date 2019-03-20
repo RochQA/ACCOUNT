@@ -57,5 +57,16 @@ public class AccountServiceImp implements AccountService {
 		
 		return upAccount;
 	}
+	@Override
+	public String checkAccountNumber(String accNum) {
+		List<Account> allAccounts = getAllAccounts();
+		Account account = new Account(); 
+		for(int i=0;i<allAccounts.size();i++) { 
+			if(allAccounts.get(i).getAccountNumber()==accNum) { 
+				account=allAccounts.get(i);
+			}
+		}
+	return null;	
+	}
 
 }
