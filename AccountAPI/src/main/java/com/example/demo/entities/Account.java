@@ -6,16 +6,26 @@ import javax.persistence.Id;
 
 @Entity
 public class Account {
-	
+
 	@Id
 	@GeneratedValue
 	Long id;
-	
+
 	String accountName;
-	
+
 	String accountNumber;
-	
-	String prize; 
+
+	String prize;
+
+	String password;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getAccountName() {
 		return accountName;
@@ -40,7 +50,13 @@ public class Account {
 	public void setPrize(String prize) {
 		this.prize = prize;
 	}
-	
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 }
