@@ -47,9 +47,8 @@ public class AccountController {
 	}
 	public String genPrize(String accNum) {		
 		String url = "http://localhost:8082/genPrize";
-		HttpEntity<String> request = new HttpEntity<>(new String(accNum));
+		HttpEntity<String> request = new HttpEntity<>(accNum);
 		ResponseEntity<String> response = rest.exchange(url, HttpMethod.POST, request, String.class);
 		return response.getBody();
 	}
-
 }

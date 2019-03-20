@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import org.springframework.http.HttpEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -18,7 +19,8 @@ public class AccountPrizeController {
 	}
 
 	@PostMapping("/genPrize")
-	public String getPrize(String accNum) {
-		return svc.genPrize(accNum);	
+	public String getPrize(HttpEntity<String> accNum) {
+		String acNum = accNum.getBody();
+		return svc.genPrize(acNum);	
 	}
 }

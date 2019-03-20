@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 public class AccountPrizeGenerator {
 	
 	public String genPrize(String accNum) {
-		
 		if(accNum.contains("a")) {
 			return "Nothing";
 		}else if(accNum.contains("b")) {
