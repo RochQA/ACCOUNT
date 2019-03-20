@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.entities.Account;
+import com.example.demo.entities.Login;
 import com.example.demo.service.AccountServiceImp;
 
 @RestController
@@ -36,20 +37,26 @@ public class AccountController {
 	public Account createAccount(@RequestBody Account account) {
 		account.setAccountNumber(genAccountNumber());
 		account.setPrize(genPrize(account.getAccountNumber()));
-		return svc.createAccount(account);
-		
-	}
-	
+		return svc.createAccount(account);	
+	}	
 	@GetMapping("/getAccounts")
 	public List<Account> getAccounts() {
 		return svc.getAllAccounts();	
+	}
+	@GetMapping("/getAccount/{id}")
+	public Account getAccount(@PathVariable Long id) {
+		return svc.getAccount(id);
 	}
 	@DeleteMapping("/deleteAccount/{id}")
 	public String deleteAccount(@PathVariable Long id) {
 		return svc.deleteAccount(id);
 	}
+	@PutMapping("/login")
+	public Account login(@RequestBody Login login) {
+		return svc.login(login);
+	}
 	@PutMapping("/updateAccount")
-	public Account updateAccount(Account account) {
+	public Account updateAccount(@RequestBody Account account) {
 		return svc.updateAccount(account);
 	}
 	
