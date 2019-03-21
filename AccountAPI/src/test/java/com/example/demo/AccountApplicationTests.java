@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes=AccountApplication.class)
 public class AccountApplicationTests {
 
 	@InjectMocks

@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.example.demo.entities.Account;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes=AccountApplication.class)
 public class AccountEntityTests {
 	
 	private Account account1;

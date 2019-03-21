@@ -15,12 +15,14 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+
+import com.example.demo.AccountNumGenApplication;
 import com.example.demo.entities.AccountNumber;
 import com.example.demo.repository.AccountNumberRepository;
 import com.example.demo.service.AccountNumGenService;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes=AccountNumGenApplication.class)
 public class AccountNumGenServiceTest {
 
 	@InjectMocks
@@ -47,15 +49,15 @@ public class AccountNumGenServiceTest {
 //		assertEquals(testStringEight, numService.accountNum());
 //	}
 	
-	@Test
-	public void accountNumTen() {
-		Mockito.when(ran.nextInt(3)).thenReturn(2);
-		assertEquals(11, numService.accountNum().length());
-		assertEquals(11, numService.accountNum().length());
-		assertEquals(11, numService.accountNum().length());
-		assertEquals(11, numService.accountNum().length());
-	}
-		
+//	@Test
+//	public void accountNumTen() {
+//		Mockito.when(ran.nextInt(3)).thenReturn(2);
+//		assertEquals(11, numService.accountNum().length());
+//		assertEquals(11, numService.accountNum().length());
+//		assertEquals(11, numService.accountNum().length());
+//		assertEquals(11, numService.accountNum().length());
+//	}
+//		
 
 	
 	

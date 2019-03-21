@@ -30,7 +30,7 @@ import com.example.demo.entities.Login;
 import com.example.demo.service.AccountServiceImp;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes=AccountApplication.class)
 public class AccountControllerTests {
 
 	@InjectMocks
