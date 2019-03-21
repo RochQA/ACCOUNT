@@ -85,5 +85,6 @@ public class AccountControllerTests {
 	public void updateAccountTest() {
 		Mockito.when(scv.updateAccount(MOCK_ACCOUNT)).thenReturn(MOCK_ACCOUNT);
 		assertEquals(MOCK_ACCOUNT, control.updateAccount(MOCK_ACCOUNT));
+		
 	}
 }
