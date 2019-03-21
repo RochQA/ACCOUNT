@@ -112,7 +112,6 @@ public class AcountServiceTests {
 		login.setPassword(MOCK_PASSWORD);
 		MOCK_ACCOUNT_LIST.add(MOCK_ACCOUNT_1);
 		Mockito.when(accountRepository.findAll()).thenReturn(MOCK_ACCOUNT_LIST);
-		
 		assertNotEquals(MOCK_ACCOUNT_1, accountServiceImp.login(login));
 		
 	}
