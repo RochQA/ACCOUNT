@@ -18,11 +18,6 @@ public class AccountPrizeApplicationTests {
 	
 	SuiteTest test;
 
-	
-	@Before
-	public void setup() {
-		
-	}
 	@Test
 	public void contextLoads() {
 		assertThat(app).isNotNull();
