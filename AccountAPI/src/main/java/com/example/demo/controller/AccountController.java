@@ -24,8 +24,8 @@ import com.example.demo.service.AccountServiceImp;
 @CrossOrigin
 public class AccountController {
 	
-
 	public AccountServiceImp svc;	
+	
 	public RestTemplate rest;
 
 	public AccountController(AccountServiceImp svc, RestTemplateBuilder rest) {
