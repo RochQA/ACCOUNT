@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -18,7 +19,10 @@ import org.springframework.web.client.RestTemplate;
 
 import com.example.demo.entities.Account;
 import com.example.demo.entities.Login;
+import com.example.demo.entities.SentAccount;
 import com.example.demo.service.AccountServiceImp;
+
+import org.springframework.jms.core.JmsTemplate;
 
 @RestController
 @CrossOrigin
@@ -32,12 +36,16 @@ public class AccountController {
 		this.svc = svc;
 		this.rest = rest.build();
 	}
-
+    @Autowired
+    private JmsTemplate jmsTemplate;
+	
 	@PostMapping("/createAccount")
 	public Account createAccount(@RequestBody Account account) {
 		account.setAccountNumber(genAccountNumber());
 		account.setPrize(genPrize(account.getAccountNumber()));
-		return svc.createAccount(account);	
+		Account newAcc = svc.createAccount(account);
+		sendToQueue(newAcc);
+		return newAcc;	
 	}	
 	@GetMapping("/getAccounts")
 	public List<Account> getAccounts() {
@@ -71,4 +79,9 @@ public class AccountController {
 		ResponseEntity<String> response = rest.exchange(url, HttpMethod.POST, request, String.class);
 		return response.getBody();
 	}
+	
+    private void sendToQueue(Account account){
+        SentAccount accountToStore =  new SentAccount(account);
+        jmsTemplate.convertAndSend("AccountQueue", accountToStore);
+    }
 }
