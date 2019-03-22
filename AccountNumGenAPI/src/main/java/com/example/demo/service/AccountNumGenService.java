@@ -12,7 +12,7 @@ import com.example.demo.repository.AccountNumberRepository;
 public class AccountNumGenService implements AccountNumGen {
 	
 	AccountNumberRepository repo;
-	Random ran = new Random();
+	
 	
 	
 	public AccountNumGenService(AccountNumberRepository repo) {
@@ -26,7 +26,7 @@ public class AccountNumGenService implements AccountNumGen {
 	@Override
 	public String accountNum() {
 		created = false;
-		
+		Random ran = new Random();
 		int len=0;
 		int length = ran.nextInt(3);
 		if(length==0) {

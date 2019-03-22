@@ -1,22 +1,20 @@
-package com.example.demoTest;
+package com.example.demo;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
-import com.example.demo.AccountNumGenApplication;
-
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes=AccountNumGenApplication.class)
-public class AccountApplicationTests {
-
+@SpringBootTest
+public class AccountPrizeApplicationTests {
+	
 	@InjectMocks
-	AccountNumGenApplication app;
+	AccountPrizeApplication app;
 	
 	SuiteTest test;
 
@@ -26,10 +24,10 @@ public class AccountApplicationTests {
 	}
 	@Test
 	public void test() {
-		
+		String[] args = new String[] {"random"};
+		app.main(args);
 		test=new SuiteTest();
 		assertThat(test).isNotNull();
 	}
-
 
 }
